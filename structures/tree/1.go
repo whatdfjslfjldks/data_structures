@@ -40,6 +40,7 @@ func (root *TreeNode) Remove(val int) *TreeNode {
 			minNode = minNode.Left
 		}
 		root.Val = minNode.Val
+		root.Right = root.Right.Remove(minNode.Val)
 	}
 	return root
 }
@@ -88,7 +89,7 @@ func main() {
 	root = root.Insert(1)
 	root = root.Insert(2)
 	root = root.Insert(4)
-	root = root.Remove(3)
+	root = root.Remove(4)
 
 	root.InOrder()
 }
